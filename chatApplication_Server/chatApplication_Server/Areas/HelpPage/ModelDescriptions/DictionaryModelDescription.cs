@@ -1,4 +1,4 @@
-namespace chatApplication_Server.Areas.HelpPage.ModelDescriptions
+namespace WebApplication1.Areas.HelpPage.ModelDescriptions
 {
     public class DictionaryModelDescription : KeyValuePairModelDescription
     {

@@ -9,9 +9,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using chatApplication_Server.Models;
+using WebApplication1.Models;
 
-namespace chatApplication_Server.Providers
+namespace WebApplication1.Providers
 {
     public class ApplicationOAuthProvider : OAuthAuthorizationServerProvider
     {

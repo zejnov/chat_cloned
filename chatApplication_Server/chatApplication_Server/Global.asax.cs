@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace chatApplication_Server
+namespace WebApplication1
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

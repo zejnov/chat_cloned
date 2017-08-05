@@ -4,9 +4,9 @@ using System.Linq;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(chatApplication_Server.Startup))]
+[assembly: OwinStartup(typeof(WebApplication1.Startup))]
 
-namespace chatApplication_Server
+namespace WebApplication1
 {
     public partial class Startup
     {

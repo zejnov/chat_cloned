@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace chatApplication_Server
+namespace WebApplication1
 {
     public class BundleConfig
     {

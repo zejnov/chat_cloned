@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace chatApplication_Server.Areas.HelpPage
+namespace WebApplication1.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

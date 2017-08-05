@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace chatApplication_Server.Results
+namespace WebApplication1.Results
 {
     public class ChallengeResult : IHttpActionResult
     {

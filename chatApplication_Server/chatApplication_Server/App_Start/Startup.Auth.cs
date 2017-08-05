@@ -8,10 +8,10 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
-using chatApplication_Server.Providers;
-using chatApplication_Server.Models;
+using WebApplication1.Providers;
+using WebApplication1.Models;
 
-namespace chatApplication_Server
+namespace WebApplication1
 {
     public partial class Startup
     {
