@@ -1,0 +1,16 @@
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Client\chatApplication_Client\bin\Debug\chatApplication_Client.exe.config
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Client\chatApplication_Client\bin\Debug\chatApplication_Client.exe
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Client\chatApplication_Client\bin\Debug\chatApplication_Client.pdb
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Client\chatApplication_Client\obj\Debug\chatApplication_Client.csprojResolveAssemblyReference.cache
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Client\chatApplication_Client\obj\Debug\MainWindow.g.cs
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Client\chatApplication_Client\obj\Debug\App.g.cs
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Client\chatApplication_Client\obj\Debug\chatApplication_Client_MarkupCompile.cache
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Client\chatApplication_Client\obj\Debug\chatApplication_Client_MarkupCompile.lref
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Client\chatApplication_Client\obj\Debug\MainWindow.baml
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Client\chatApplication_Client\obj\Debug\chatApplication_Client.g.resources
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Client\chatApplication_Client\obj\Debug\chatApplication_Client.Properties.Resources.resources
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Client\chatApplication_Client\obj\Debug\chatApplication_Client.csproj.GenerateResource.Cache
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Client\chatApplication_Client\obj\Debug\chatApplication_Client.exe
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Client\chatApplication_Client\obj\Debug\chatApplication_Client.pdb
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Client\chatApplication_Client\obj\Debug\SignupWindow.g.cs
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Client\chatApplication_Client\obj\Debug\SignupWindow.baml

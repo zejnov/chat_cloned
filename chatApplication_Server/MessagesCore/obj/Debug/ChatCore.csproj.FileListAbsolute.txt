@@ -1,0 +1,12 @@
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Server\MessagesCore\bin\Debug\MessagesCore.dll.config
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Server\MessagesCore\bin\Debug\MessagesCore.dll
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Server\MessagesCore\bin\Debug\MessagesCore.pdb
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Server\MessagesCore\bin\Debug\EntityFramework.dll
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Server\MessagesCore\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Server\MessagesCore\bin\Debug\Newtonsoft.Json.dll
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Server\MessagesCore\bin\Debug\EntityFramework.xml
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Server\MessagesCore\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Server\MessagesCore\bin\Debug\Newtonsoft.Json.xml
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Server\MessagesCore\obj\Debug\ChatCore.csprojResolveAssemblyReference.cache
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Server\MessagesCore\obj\Debug\MessagesCore.dll
+c:\users\saif\documents\visual studio 2015\Projects\chatApplication_Server\MessagesCore\obj\Debug\MessagesCore.pdb
