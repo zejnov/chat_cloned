@@ -8,3 +8,13 @@ c:\users\saif\documents\visual studio 2015\Projects\WebApplication1\ChatCore\bin
 c:\users\saif\documents\visual studio 2015\Projects\WebApplication1\ChatCore\obj\Debug\ChatCore.csprojResolveAssemblyReference.cache
 c:\users\saif\documents\visual studio 2015\Projects\WebApplication1\ChatCore\obj\Debug\ChatCore.dll
 c:\users\saif\documents\visual studio 2015\Projects\WebApplication1\ChatCore\obj\Debug\ChatCore.pdb
+C:\Users\Saif\documents\visual studio 2015\Projects\chatApplication_Server\ChatCore\bin\Debug\ChatCore.dll.config
+C:\Users\Saif\documents\visual studio 2015\Projects\chatApplication_Server\ChatCore\bin\Debug\ChatCore.dll
+C:\Users\Saif\documents\visual studio 2015\Projects\chatApplication_Server\ChatCore\bin\Debug\ChatCore.pdb
+C:\Users\Saif\documents\visual studio 2015\Projects\chatApplication_Server\ChatCore\bin\Debug\EntityFramework.dll
+C:\Users\Saif\documents\visual studio 2015\Projects\chatApplication_Server\ChatCore\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Saif\documents\visual studio 2015\Projects\chatApplication_Server\ChatCore\bin\Debug\EntityFramework.xml
+C:\Users\Saif\documents\visual studio 2015\Projects\chatApplication_Server\ChatCore\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Saif\documents\visual studio 2015\Projects\chatApplication_Server\ChatCore\obj\Debug\ChatCore.csprojResolveAssemblyReference.cache
+C:\Users\Saif\documents\visual studio 2015\Projects\chatApplication_Server\ChatCore\obj\Debug\ChatCore.dll
+C:\Users\Saif\documents\visual studio 2015\Projects\chatApplication_Server\ChatCore\obj\Debug\ChatCore.pdb

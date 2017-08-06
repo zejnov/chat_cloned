@@ -13,13 +13,12 @@ namespace MessagesCore
         {
             using (var db = new ChatAppContext())
             {
-
                 if (db.Users.Any(c => c.Username == Username && c.Password == Password))
                 {
                     return true;
                 }
                 return false;
-           }
+            }
 
 
         }
