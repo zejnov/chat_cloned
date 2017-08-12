@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,6 +30,10 @@ namespace MessagesCore
         {
             using (var db = new ChatAppContext())
             {
+                if(db.Users.Any(u => u.Username == user.Username || u.Email == user.Email))
+                {
+                    throw new UserNameOrEmailAlreadyExistsException();
+                }
                 db.Users.Add(user);
                 db.SaveChanges();
             }
@@ -63,10 +68,15 @@ namespace MessagesCore
                 if (myUser != null)
                 {
                     User userInDB = db.Users.Find(myUser.Id);
+                    if(userInDB == null)
+                    {
+                        //user cannot be found in DB
+                        return;
+                    }
                     contact.User = userInDB;
                     db.Contacts.Add(contact);
                     userInDB.Contacts.Add(contact);
-                    db.Entry(userInDB).State = System.Data.Entity.EntityState.Modified;
+             //       db.Entry(userInDB).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
             }
@@ -82,16 +92,13 @@ namespace MessagesCore
 
                 if (myUser != null && otherUser != null)
                 {
-
-
-                    //User userInDB = db.Users.Find(myUser);
                     List<Message> MessagesInDB = myUser.Messages.ToList();
                     foreach (Message msg in MessagesInDB)
                     {
-                        if ((msg.fromUserId == myUser.Id && msg.toUserId == otherUser.Id) ||
-                            (msg.fromUserId == otherUser.Id && msg.toUserId == myUser.Id))
+                        if ((msg.FromUserId == myUser.Id && msg.ToUserId == otherUser.Id) ||
+                            (msg.FromUserId == otherUser.Id && msg.ToUserId == myUser.Id))
                         {
-                            MessagesBetweenTwoUsers.Add(msg.message);
+                            MessagesBetweenTwoUsers.Add(msg.MessageText);
                         }
                         //need to update message status to Read
                     }
@@ -112,29 +119,49 @@ namespace MessagesCore
                 if(userFrom != null && userTo != null && !String.IsNullOrEmpty(messageText))
                 {
                     Message messageFrom = new Message();
-                    messageFrom.fromUserId = userFrom.Id;
-                    messageFrom.toUserId = userTo.Id;
-                    messageFrom.message = messageText;
-                    messageFrom.user = userFrom;
+                    messageFrom.FromUserId = userFrom.Id;
+                    messageFrom.ToUserId = userTo.Id;
+                    messageFrom.MessageText = messageText;
+                    messageFrom.User = userFrom;
+                    messageFrom.Date = DateTimeOffset.UtcNow;
+                  //  messageFrom.IsNew = true;
                     userFrom.Messages.Add(messageFrom);
                     Message messageTo = new Message();
-                    messageTo.fromUserId = userFrom.Id;
-                    messageTo.toUserId = userTo.Id;
-                    messageTo.message = messageText;
-                    messageTo.user = userTo;
+                    messageTo.FromUserId = userFrom.Id;
+                    messageTo.ToUserId = userTo.Id;
+                    messageTo.MessageText = messageText;
+                    messageTo.User = userTo;
+                    messageTo.Date = DateTimeOffset.UtcNow;
+            //        messageTo.IsNew = true;
                     userTo.Messages.Add(messageTo);
-                    //Message must be set as new here
-
                     Contact contactTo = userFrom.Contacts.SingleOrDefault(contact => contact.Email == userTo.Email);
                     contactTo.LastMessageText = messageText;
-              //      db.Entry(userFrom).State = System.Data.Entity.EntityState.Modified;
-              //      db.Entry(userTo).State = System.Data.Entity.EntityState.Modified;
-              //      db.Entry(contactTo).State = System.Data.Entity.EntityState.Modified;
 
                     db.SaveChanges();
 
                 }
             }
         }
+
+        [Serializable]
+        public class UserNameOrEmailAlreadyExistsException : Exception
+        {
+            public UserNameOrEmailAlreadyExistsException()
+            {
+            }
+
+            public UserNameOrEmailAlreadyExistsException(string message) : base(message)
+            {
+            }
+
+            public UserNameOrEmailAlreadyExistsException(string message, Exception innerException) : base(message, innerException)
+            {
+            }
+
+            protected UserNameOrEmailAlreadyExistsException(SerializationInfo info, StreamingContext context) : base(info, context)
+            {
+            }
+        }
     }
 }
+

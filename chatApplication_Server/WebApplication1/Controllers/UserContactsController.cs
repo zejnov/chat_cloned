@@ -13,23 +13,24 @@ namespace WebApplication1.Controllers
     {
         //http://localhost:64014/api/userContacts?UserId=2
         [HttpGet, Route("api/userContacts")]
-        public IEnumerable<Contact> Get(string username, string filter=null)
+        public IEnumerable<User> Get(string username, string filter=null)
         {
             var s = new ChatService();
 
             List<User> users = s.LoadContacts(username, filter);
-            List<Contact> contacts = new List<Contact>();
-            Contact temp = new Contact();
-            int id = 0;
-            foreach (User user in users)
-            {
-                temp.FirstName = user.FirstName;
-                temp.LastName = user.LastName;
-                temp.Email = user.Email;
-                temp.Id = id++;
-                contacts.Add(temp);
-            }
-            return contacts;
+            return users;
+            //List<Contact> contacts = new List<Contact>();
+   //         Contact temp = new Contact();
+  //          int id = 0;
+            //foreach (User user in users)
+            //{
+            //    temp.FirstName = user.FirstName;
+            //    temp.LastName = user.LastName;
+            //    temp.Email = user.Email;
+            //    temp.Id = id++;
+            //    contacts.Add(temp);
+            //}
+            //return contacts;
         }
         [HttpPost, Route("api/userContacts")]
         public void Post(AddContactToUserViewModel userContactInfo)
