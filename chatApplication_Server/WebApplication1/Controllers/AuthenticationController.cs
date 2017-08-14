@@ -12,12 +12,20 @@ namespace WebApplication1.Controllers
         //Register
         // POST api/values
 
-        //http://localhost:64014/api/authentication
+        //http://localhost:64014a/pi/authentication
         [HttpPost, Route("api/authentication")]
         public IHttpActionResult Post([FromBody]User user)
         {
             var s = new ChatService();
-            s.RegisterUser(user);
+            try
+            {
+                s.RegisterUser(user);
+            }
+            catch(Exception e)
+            {
+                return Ok("Already exsists");
+            }
+            
             return Ok();
         }
 

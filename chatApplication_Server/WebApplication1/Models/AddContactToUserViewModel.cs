@@ -7,7 +7,7 @@ namespace WebApplication1.Models
 {
     public class AddContactToUserViewModel
     {
-        public string username { get; set;}
-        public Contact contact { get; set; }
+        public string Username { get; set;}
+        public Contact Contact { get; set; }
     }
 }

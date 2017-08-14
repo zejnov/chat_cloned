@@ -25,8 +25,8 @@ namespace WebApplication1.Controllers
         {
             //Add contact to the user
             ChatService cs = new ChatService();
-            string username = userContactInfo.username;
-            Contact contact = userContactInfo.contact;
+            string username = userContactInfo.Username;
+            Contact contact = userContactInfo.Contact;
             if (cs.AddContactToUser(username, contact))
                 return Ok();
 
