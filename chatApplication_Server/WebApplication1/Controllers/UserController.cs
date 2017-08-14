@@ -14,11 +14,14 @@ namespace WebApplication1.Controllers
 
 
         [HttpPost, Route("api/user")]
-        public string Post(UserContactViewModel userContact)
+        public IHttpActionResult Post(UserContactViewModel userContact)
         {
             var s = new ChatService();
-            s.SendMessage(userContact.Username,userContact.OtherUsernameEmail,userContact.Message);
-            return "success";
+            if(s.SendMessage(userContact.Username,userContact.OtherUsernameEmail,userContact.Message))
+            {
+                return Ok();
+            }
+            return NotFound();
         }
 
 
@@ -26,7 +29,6 @@ namespace WebApplication1.Controllers
         public IEnumerable<string> Get(UserContactViewModel userContact)
         {
             var s = new ChatService();
-
             return s.LoadMessages(userContact.Username, userContact.OtherUsernameEmail);
         }
     }

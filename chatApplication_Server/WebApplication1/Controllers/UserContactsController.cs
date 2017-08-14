@@ -19,27 +19,18 @@ namespace WebApplication1.Controllers
 
             List<User> users = s.LoadContacts(username, filter);
             return users;
-            //List<Contact> contacts = new List<Contact>();
-   //         Contact temp = new Contact();
-  //          int id = 0;
-            //foreach (User user in users)
-            //{
-            //    temp.FirstName = user.FirstName;
-            //    temp.LastName = user.LastName;
-            //    temp.Email = user.Email;
-            //    temp.Id = id++;
-            //    contacts.Add(temp);
-            //}
-            //return contacts;
         }
         [HttpPost, Route("api/userContacts")]
-        public void Post(AddContactToUserViewModel userContactInfo)
+        public IHttpActionResult Post(AddContactToUserViewModel userContactInfo)
         {
             //Add contact to the user
             ChatService cs = new ChatService();
             string username = userContactInfo.username;
             Contact contact = userContactInfo.contact;
-            cs.AddContactToUser(username, contact);
+            if (cs.AddContactToUser(username, contact))
+                return Ok();
+
+            return NotFound();
         }
     }
 }

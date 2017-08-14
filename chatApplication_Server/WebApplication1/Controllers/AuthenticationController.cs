@@ -14,11 +14,11 @@ namespace WebApplication1.Controllers
 
         //http://localhost:64014/api/authentication
         [HttpPost, Route("api/authentication")]
-        public string Post([FromBody]User user)
+        public IHttpActionResult Post([FromBody]User user)
         {
             var s = new ChatService();
             s.RegisterUser(user);
-            return "success";
+            return Ok();
         }
 
 

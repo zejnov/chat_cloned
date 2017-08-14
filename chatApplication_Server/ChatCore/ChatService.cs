@@ -60,25 +60,28 @@ namespace MessagesCore
             }
         }
 
-        public void AddContactToUser(string username, Contact contact)
+        public Boolean AddContactToUser(string username, Contact contact)
         {
             using (var db = new ChatAppContext())
             {
                 User myUser = db.Users.SingleOrDefault(user => user.Username == username);
-                if (myUser != null)
+                if (myUser == null)
                 {
-                    User userInDB = db.Users.Find(myUser.Id);
-                    if(userInDB == null)
-                    {
-                        //user cannot be found in DB
-                        return;
-                    }
-                    contact.User = userInDB;
-                    db.Contacts.Add(contact);
-                    userInDB.Contacts.Add(contact);
-             //       db.Entry(userInDB).State = System.Data.Entity.EntityState.Modified;
-                    db.SaveChanges();
+                    return false;
                 }
+                //User userInDB = db.Users.Find(myUser.Id);
+                //if(userInDB == null)
+                //{
+                //    //user cannot be found in DB
+                //    return;
+                //}
+                contact.User = myUser;
+                db.Contacts.Add(contact);
+                myUser.Contacts.Add(contact);
+                //       db.Entry(userInDB).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return true;
+
             }
         }
         public List<string> LoadMessages(string username, string otherUserEmail)
@@ -109,37 +112,39 @@ namespace MessagesCore
             }
         }
 
-        public void SendMessage(string usernameFrom, string userToEmail, string messageText)
+        public Boolean SendMessage(string usernameFrom, string userToEmail, string messageText)
         {
             using (var db = new ChatAppContext())
             {
                 User userFrom = db.Users.SingleOrDefault(user => user.Username == usernameFrom);
                 User userTo = db.Users.SingleOrDefault(user => user.Email == userToEmail);
 
-                if(userFrom != null && userTo != null && !String.IsNullOrEmpty(messageText))
+                if (userFrom == null || userTo == null)
                 {
-                    Message messageFrom = new Message();
-                    messageFrom.FromUserId = userFrom.Id;
-                    messageFrom.ToUserId = userTo.Id;
-                    messageFrom.MessageText = messageText;
-                    messageFrom.User = userFrom;
-                    messageFrom.Date = DateTimeOffset.UtcNow;
-                  //  messageFrom.IsNew = true;
-                    userFrom.Messages.Add(messageFrom);
-                    Message messageTo = new Message();
-                    messageTo.FromUserId = userFrom.Id;
-                    messageTo.ToUserId = userTo.Id;
-                    messageTo.MessageText = messageText;
-                    messageTo.User = userTo;
-                    messageTo.Date = DateTimeOffset.UtcNow;
-            //        messageTo.IsNew = true;
-                    userTo.Messages.Add(messageTo);
-                    Contact contactTo = userFrom.Contacts.SingleOrDefault(contact => contact.Email == userTo.Email);
-                    contactTo.LastMessageText = messageText;
-
-                    db.SaveChanges();
-
+                    return false;
                 }
+                Message messageFrom = new Message();
+                messageFrom.FromUserId = userFrom.Id;
+                messageFrom.ToUserId = userTo.Id;
+                messageFrom.MessageText = messageText;
+                messageFrom.User = userFrom;
+                messageFrom.Date = DateTimeOffset.UtcNow;
+                //  messageFrom.IsNew = true;
+                userFrom.Messages.Add(messageFrom);
+                Message messageTo = new Message();
+                messageTo.FromUserId = userFrom.Id;
+                messageTo.ToUserId = userTo.Id;
+                messageTo.MessageText = messageText;
+                messageTo.User = userTo;
+                messageTo.Date = DateTimeOffset.UtcNow;
+                //        messageTo.IsNew = true;
+                userTo.Messages.Add(messageTo);
+                Contact contactTo = userFrom.Contacts.SingleOrDefault(contact => contact.Email == userTo.Email);
+                contactTo.LastMessageText = messageText;
+
+                db.SaveChanges();
+                return true;
+
             }
         }
 
