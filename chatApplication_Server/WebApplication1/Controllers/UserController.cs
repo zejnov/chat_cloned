@@ -25,7 +25,7 @@ namespace WebApplication1.Controllers
         }
 
 
-        [HttpGet, Route("api/user")]
+        [HttpPut, Route("api/user")]
         public IEnumerable<string> Get(UserContactViewModel userContact)
         {
             var s = new ChatService();

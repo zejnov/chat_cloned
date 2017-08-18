@@ -65,20 +65,15 @@ namespace MessagesCore
             using (var db = new ChatAppContext())
             {
                 User myUser = db.Users.SingleOrDefault(user => user.Username == username);
-                if (myUser == null)
+                //check if contact exists
+                User contactAsUser = db.Users.SingleOrDefault(user => user.Email == contact.Email); 
+                if (myUser == null || contactAsUser == null)
                 {
                     return false;
                 }
-                //User userInDB = db.Users.Find(myUser.Id);
-                //if(userInDB == null)
-                //{
-                //    //user cannot be found in DB
-                //    return;
-                //}
                 contact.User = myUser;
                 db.Contacts.Add(contact);
                 myUser.Contacts.Add(contact);
-                //       db.Entry(userInDB).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return true;
 
@@ -101,7 +96,10 @@ namespace MessagesCore
                         if ((msg.FromUserId == myUser.Id && msg.ToUserId == otherUser.Id) ||
                             (msg.FromUserId == otherUser.Id && msg.ToUserId == myUser.Id))
                         {
-                            MessagesBetweenTwoUsers.Add(msg.MessageText);
+                            if(msg.IsNew) {
+                                MessagesBetweenTwoUsers.Add(msg.MessageText);
+                                msg.IsNew = false;
+                            }
                         }
                         //need to update message status to Read
                     }
@@ -129,7 +127,7 @@ namespace MessagesCore
                 messageFrom.MessageText = messageText;
                 messageFrom.User = userFrom;
                 messageFrom.Date = DateTimeOffset.UtcNow;
-                //  messageFrom.IsNew = true;
+                messageFrom.IsNew = true;
                 userFrom.Messages.Add(messageFrom);
                 Message messageTo = new Message();
                 messageTo.FromUserId = userFrom.Id;
@@ -137,7 +135,7 @@ namespace MessagesCore
                 messageTo.MessageText = messageText;
                 messageTo.User = userTo;
                 messageTo.Date = DateTimeOffset.UtcNow;
-                //        messageTo.IsNew = true;
+                messageTo.IsNew = true;
                 userTo.Messages.Add(messageTo);
                 Contact contactTo = userFrom.Contacts.SingleOrDefault(contact => contact.Email == userTo.Email);
                 contactTo.LastMessageText = messageText;

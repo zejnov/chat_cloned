@@ -24,7 +24,7 @@ namespace MessagesCore
         public string MessageText { get; set; }
 
         [DataMember]
-        public Boolean IsNew { get; set; }
+        public bool IsNew { get; set; }
 
         public virtual User User { get; set; }
     }
